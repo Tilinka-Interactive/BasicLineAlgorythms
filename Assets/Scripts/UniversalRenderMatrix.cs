@@ -10,10 +10,10 @@ public class UniversalRenderMatrix : MonoBehaviour
     [SerializeField] GameObject PixelPrefab;
     [SerializeField] GameObject PixelPrefab2;
     [SerializeField] Material IsOnMaterial;
-    //[SerializeField] private float tweenTime;
-    [SerializeField] Material ledMaterial;
+    //[SerializeField] Material ledMaterial;
     [SerializeField] private Color beginColor, endColor;
     [SerializeField] private PseudoCineMachine cam;
+    [SerializeField] private AlgoritmoBasico basico;
     private int x = 0;
     private int y = 0;
 
@@ -23,7 +23,7 @@ public class UniversalRenderMatrix : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         GenerateMatrix(30);
-        InvokeRepeating("ChangeMaterialTest", 0, 0.01f);
+        //InvokeRepeating("ChangeMaterialTest", 0, 0.01f);
         //Tween(); //Color change test
     }
 
@@ -56,6 +56,11 @@ public class UniversalRenderMatrix : MonoBehaviour
         x = 0;
         y = 0;
     }
+
+    public void BasicAlgorythmEx() {
+        basico.algortimo(0, 0, 15, 29, MatrixScreen, IsOnMaterial);
+    }
+
 
 
     private void ChangeMaterialTest() {
@@ -108,7 +113,7 @@ public class UniversalRenderMatrix : MonoBehaviour
             .setLoopPingPong()
             .setOnUpdate((value) =>
             {
-                ledMaterial.color = Color.Lerp(beginColor, endColor, value);
+                IsOnMaterial.color = Color.Lerp(beginColor, endColor, value);
             });
     }
 }
