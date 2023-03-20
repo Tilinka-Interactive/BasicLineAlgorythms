@@ -38,8 +38,8 @@ public class PixelScript : MonoBehaviour
         GameEvents.Current.MouseOnPixel("");
         if (isOn) LedMesh.material = isOnMat;
         else {
-            LedMesh.material.SetColor("_Color", Color.black);
-            LedMesh.material.SetColor("_EmissionColor", Color.black);
+            LedMesh.material.SetColor("_Color", Color.white);
+            LedMesh.material.SetColor("_EmissionColor", Color.white);
         }
     }
 
