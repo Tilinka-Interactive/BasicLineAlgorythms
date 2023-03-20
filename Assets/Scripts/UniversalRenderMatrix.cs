@@ -10,10 +10,10 @@ public class UniversalRenderMatrix : MonoBehaviour
     [SerializeField] GameObject PixelPrefab;
     [SerializeField] GameObject PixelPrefab2;
     [SerializeField] Material IsOnMaterial;
-    //[SerializeField] Material ledMaterial;
     [SerializeField] private Color beginColor, endColor;
     [SerializeField] private PseudoCineMachine cam;
     [SerializeField] private AlgoritmoBasico basico;
+    //[SerializeField] private UIControllerScript UIControl;
     private int x = 0;
     private int y = 0;
 
@@ -57,11 +57,15 @@ public class UniversalRenderMatrix : MonoBehaviour
         y = 0;
     }
 
-    public void BasicAlgorythmEx() {
-        basico.algortimo(0, 0, 15, 29, MatrixScreen, IsOnMaterial);
+    public void BasicAlgorythmEx(int x0, int y0, int x1, int y1) {
+        if (x0 >= 0 && x0 < MatrixScreen.Count &&
+           x1 >= 0 && x1 < MatrixScreen.Count &&
+           y0 >= 0 && y0 < MatrixScreen.Count &&
+           y1 >= 0 && y1 < MatrixScreen.Count) {
+            basico.algortimo(x0, y0, x1, y1, MatrixScreen, IsOnMaterial);
+        }
+        
     }
-
-
 
     private void ChangeMaterialTest() {
         if (auxX < MatrixScreen.Count)
