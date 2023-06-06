@@ -8,7 +8,6 @@ public class UniversalRenderMatrix3 : MonoBehaviour
 {
     [SerializeField] List<List<GameObject>> MatrixScreen = new();
     [SerializeField] GameObject PixelPrefab;
-    //[SerializeField] GameObject PixelPrefab2;
     [SerializeField] Material IsOnMaterial;
     [SerializeField] private Color beginColor, endColor;
     [SerializeField] private PseudoCineMachine cam;
